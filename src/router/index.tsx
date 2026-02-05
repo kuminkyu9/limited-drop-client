@@ -7,7 +7,7 @@ import RegisterMain from '@/screens/account/RegisterMain';
 import WithdrawMain from '@/screens/account/WithdrawMain';
 
 import ProtectedLayout from '@/router/ProtectedLayout'; 
-import ProfileMain from '@/screens/ProfileMain';
+import ProfileMain from '@/screens/mypage/ProfileMain';
 import NotFoundPage from '@/screens/NotFoundPage';
 
 
