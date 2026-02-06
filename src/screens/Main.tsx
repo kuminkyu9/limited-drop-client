@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import Navbar from '@/screens/NavBar';
+import Navbar from '@/screens/Navbar';
 import RaffleCard from '@/screens/RaffleCard';
 import FCFSCard from '@/screens/FCFSCard';
 
@@ -46,7 +46,7 @@ const Main = () => {
   return (
     <div className="min-h-screen bg-white text-black font-sans">
       {/* --- Navbar --- */}
-      <Navbar count={2} search={() => {console.log('go search');}} shopping={() => {console.log('go shopping')}} login={() => {console.log('go login')}}/>
+      <Navbar search={() => {console.log('go search');}} shopping={() => {console.log('go shopping')}} login={() => {console.log('go login')}}/>
 
       {/* --- Hero Section --- */}
       <section className="relative h-137.5 bg-black flex items-center justify-center overflow-hidden">
