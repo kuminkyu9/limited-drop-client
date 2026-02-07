@@ -1,6 +1,8 @@
 import type { RouteObject } from 'react-router-dom';
 
-import Main from '@/screens/Main'
+import Main from '@/screens/Main';
+
+import ProductDetail from '@/screens/product/ProductDetail';
 
 import LoginMain from '@/screens/account/LoginMain';
 import RegisterMain from '@/screens/account/RegisterMain';
@@ -13,6 +15,8 @@ import NotFoundPage from '@/screens/NotFoundPage';
 
 export const appRoutes: RouteObject[] = [
   {path: '/', element: <Main />, },
+
+  {path: '/product/:id', element: <ProductDetail />, },
   
   {path: '/login', element: <LoginMain />, },
   {path: '/register', element: <RegisterMain />, },

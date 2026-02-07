@@ -13,10 +13,10 @@ interface itemProps {
   login: () => void;
 }
 
-const Header = ({ search, shopping, login }: itemProps) => {
+const Navbar = ({ search, shopping, login }: itemProps) => {
 
   return (
-    <nav className="flex items-center justify-between px-8 py-4 border-b border-gray-100">
+    <nav className="sticky top-0 z-50 bg-white flex items-center justify-between px-8 py-4 border-b border-gray-100">
       <div className="text-xl font-black tracking-tighter cursor-pointer">LIMITED DROP</div>
       <div className="hidden md:flex space-x-8 text-sm font-medium">
         <a href="#" className="hover:text-gray-500 transition">HOME</a>
@@ -35,4 +35,4 @@ const Header = ({ search, shopping, login }: itemProps) => {
   );
 };
 
-export default Header;
+export default Navbar;

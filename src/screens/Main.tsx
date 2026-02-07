@@ -1,9 +1,20 @@
 import { ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
 import Navbar from '@/screens/Navbar';
+import Footer from '@/screens/Footer';
 import RaffleCard from '@/screens/RaffleCard';
 import FCFSCard from '@/screens/FCFSCard';
 
+
+// 임시 이미지
+import clockImg from '@/assets/images/clock.jpg';
+import handbagImg from '@/assets/images/handbag.jpg';
+import hoodieImg from '@/assets/images/hoodie.jpg';
+import shoesImg from '@/assets/images/shoes.jpg';
+
 interface TmpHotRaffleItem {
+  id: number;
   img?: string;
   brand: string;
   name: string;
@@ -22,22 +33,24 @@ interface TmpFCFSCardProps {
 }
 
 const Main = () => {
+  const navigate = useNavigate();
+
   const hotRaffleList: TmpHotRaffleItem[] = [
-    {img: undefined, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, timer: "02:15:30"},
-    {img: undefined, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, timer: "01:45:20"},
-    {img: undefined, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, timer: "01:45:20"},
-    {img: undefined, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+    {id: 1, img: shoesImg, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, timer: "02:15:30"},
+    {id: 2, img: hoodieImg, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, timer: "01:45:20"},
+    {id: 3, img: clockImg, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, timer: "01:45:20"},
+    {id: 4, img: handbagImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
   ];
-  const clickRapple = (data: unknown) => {
+  const clickRapple = (data: TmpHotRaffleItem) => {
     console.log('clickRapple' + data);
+    navigate(`/product/${data.id}`);
   }
 
-
   const hotFCFSList: TmpFCFSCardProps[] = [
-    {img: undefined, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, stock: "15/100", progress: 15, },
-    {img: undefined, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, stock: "3/50", progress: 6, },
-    {img: undefined, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, isSoldOut: true, },
-    {img: undefined, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, stock: "1/5", progress: 20, },
+    {img: shoesImg, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, stock: "15/100", progress: 15, },
+    {img: hoodieImg, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, stock: "3/50", progress: 6, },
+    {img: clockImg, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, isSoldOut: true, },
+    {img: handbagImg, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, stock: "1/5", progress: 20, },
   ];
   const clickFCFS = (data: unknown) => {
     console.log('clickFCFS' + data);
@@ -130,23 +143,7 @@ const Main = () => {
       </section>
 
       {/* --- Footer --- */}
-      <footer className="bg-black text-white px-8 py-16 border-t border-gray-800">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <div className="font-black text-xl mb-4 tracking-tighter">LIMITED DROP</div>
-            <p className="text-xs text-gray-500 font-light leading-relaxed">한정판 래플 & 선착순 커머스 플랫폼</p>
-          </div>
-          <div className="flex flex-col space-y-2.5 text-[13px] text-gray-400">
-            <span className="text-white font-bold mb-1 text-sm uppercase">Customer Service</span>
-            <a href="#" className="hover:text-white transition">고객센터</a>
-            <a href="#" className="hover:text-white transition">이용약관</a>
-            <a href="#" className="hover:text-white transition">개인정보처리방침</a>
-          </div>
-        </div>
-        <div className="mt-20 pt-8 border-t border-white/5 text-center text-[10px] text-gray-600 tracking-widest">
-          © 2026 LIMITED DROP. ALL RIGHTS RESERVED.
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

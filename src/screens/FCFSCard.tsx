@@ -9,12 +9,12 @@ interface itemProps {
   click: () => void;
 }
 
-const FCFSCard = ({ brand, name, price, stock, progress, isSoldOut, click }: itemProps) => {
+const FCFSCard = ({ img, brand, name, price, stock, progress, isSoldOut, click }: itemProps) => {
 
   return (
     <div onClick={() => click()} className={`group cursor-pointer ${isSoldOut ? 'opacity-40' : ''}`}>
       <div className="relative aspect-square bg-white border border-gray-100 overflow-hidden mb-4">
-        <img src="/api/placeholder/400/400" alt={name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out" />
+        <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out" />
         {!isSoldOut && (
           <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] px-2 py-1 font-black italic">
             HOT FCFS
