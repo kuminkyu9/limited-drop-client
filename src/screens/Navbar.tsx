@@ -1,5 +1,6 @@
 import { Search, ShoppingCart } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
+import { useNavigate } from 'react-router-dom';
 
 const CartBadge = () => {
   const itemCount = useCartStore((state) => state.items.length);
@@ -9,19 +10,31 @@ const CartBadge = () => {
 
 interface itemProps {
   search: () => void;
-  shopping: () => void;
-  login: () => void;
 }
 
-const Navbar = ({ search, shopping, login }: itemProps) => {
+const Navbar = ({ search }: itemProps) => {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate('/');
+  }
+
+  const shopping = () => {
+    console.log('shopping');
+  }
+
+  const login = () => {
+    console.log('login');
+  }
 
   return (
     <nav className="sticky top-0 z-50 bg-white flex items-center justify-between px-8 py-4 border-b border-gray-100">
-      <div className="text-xl font-black tracking-tighter cursor-pointer">LIMITED DROP</div>
+      <div onClick={() => goHome()} 
+      className="text-xl font-black tracking-tighter cursor-pointer">LIMITED DROP</div>
       <div className="hidden md:flex space-x-8 text-sm font-medium">
-        <a href="#" className="hover:text-gray-500 transition">HOME</a>
-        <a href="#" className="hover:text-gray-500 transition">SHOP</a>
-        <a href="#" className="hover:text-gray-500 transition">MY PAGE</a>
+        <span onClick={() => goHome()} className="hover:text-gray-500 transition cursor-pointer">HOME</span>
+        <span onClick={() => shopping()} className="hover:text-gray-500 transition cursor-pointer">SHOP</span>
+        <span onClick={() => login()} className="hover:text-gray-500 transition cursor-pointer">MY PAGE</span>
       </div>
       <div className="flex items-center space-x-5">
         <Search onClick={() => search()} size={20} className="hover:text-gray-500 cursor-pointer" />

@@ -59,7 +59,7 @@ const Main = () => {
   return (
     <div className="min-h-screen bg-white text-black font-sans">
       {/* --- Navbar --- */}
-      <Navbar search={() => {console.log('go search');}} shopping={() => {console.log('go shopping')}} login={() => {console.log('go login')}}/>
+      <Navbar search={() => {console.log('go search');}} />
 
       {/* --- Hero Section --- */}
       <section className="relative h-137.5 bg-black flex items-center justify-center overflow-hidden">

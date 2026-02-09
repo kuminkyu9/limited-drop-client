@@ -5,7 +5,7 @@ const ProductDetail = () => {
   return (
     <div className="bg-white">
       {/* --- Navbar --- */}
-      <Navbar search={() => {console.log('go search');}} shopping={() => {console.log('go shopping')}} login={() => {console.log('go login')}}/>
+      <Navbar search={() => {console.log('go search');}} />
 
       {/* 상품 정보 영역 */}
       <main className="w-full border-b border-gray-200">
@@ -13,7 +13,7 @@ const ProductDetail = () => {
           {/* 왼쪽: 큰 상품 이미지 + 작은 썸네일 3개 (가로로 배치) */}
           <div className="w-full lg:w-1/2">
             <div className="w-full bg-black">
-              <div className="aspect-[4/5] w-full">
+              <div className="aspect-4/5 w-full">
                 <img
                   src="/images/product-main.jpg"
                   alt="상품 메인"
@@ -24,21 +24,21 @@ const ProductDetail = () => {
 
             {/* 썸네일 3개 */}
             <div className="mt-4 flex gap-4">
-              <button className="relative aspect-[4/5] w-1/3 overflow-hidden bg-black">
+              <button className="relative aspect-4/5 w-1/3 overflow-hidden bg-black">
                 <img
                   src="/images/thumb-shoes.jpg"
                   alt="썸네일 1"
                   className="h-full w-full object-cover"
                 />
               </button>
-              <button className="relative aspect-[4/5] w-1/3 overflow-hidden bg-black">
+              <button className="relative aspect-4/5 w-1/3 overflow-hidden bg-black">
                 <img
                   src="/images/thumb-hoodie.jpg"
                   alt="썸네일 2"
                   className="h-full w-full object-cover"
                 />
               </button>
-              <button className="relative aspect-[4/5] w-1/3 overflow-hidden bg-black">
+              <button className="relative aspect-4/5 w-1/3 overflow-hidden bg-black">
                 <img
                   src="/images/thumb-watch.jpg"
                   alt="썸네일 3"
@@ -85,7 +85,7 @@ const ProductDetail = () => {
                 {["250", "255", "260", "265", "270", "275", "280"].map((size) => (
                   <button
                     key={size}
-                    className="border border-gray-300 py-2 text-center hover:border-black"
+                    className="border border-gray-300 py-2 text-center hover:border-black cursor-pointer"
                   >
                     {size}
                   </button>
@@ -97,10 +97,10 @@ const ProductDetail = () => {
 
             {/* 하트 버튼 / 빨간 버튼 – 가로 꽉 차게 */}
             <div className="mt-6 flex flex-col gap-3">
-              <button className="flex h-12 items-center justify-center border border-gray-300 text-sm font-medium hover:bg-gray-50">
+              <button className="flex h-12 items-center justify-center border border-gray-300 text-sm font-medium hover:bg-gray-50 cursor-pointer">
                 ♡ 찜하기
               </button>
-              <button className="flex h-12 items-center justify-center bg-red-500 text-sm font-semibold text-white hover:bg-red-600">
+              <button className="flex h-12 items-center justify-center bg-red-500 text-sm font-semibold text-white hover:bg-red-600 cursor-pointer">
                 빠른 구매하기 ⚡
               </button>
             </div>
