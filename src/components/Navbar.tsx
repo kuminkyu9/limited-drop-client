@@ -20,7 +20,7 @@ const Navbar = ({ search }: itemProps) => {
   }
 
   const shopping = () => {
-    console.log('shopping');
+    navigate('/shop');
   }
 
   const login = () => {

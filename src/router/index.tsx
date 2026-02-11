@@ -4,6 +4,8 @@ import Main from '@/screens/Main';
 
 import ProductDetail from '@/screens/product/ProductDetail';
 
+import ShopMain from '@/screens/shop/ShopMain';
+
 import LoginMain from '@/screens/account/LoginMain';
 import RegisterMain from '@/screens/account/RegisterMain';
 import WithdrawMain from '@/screens/account/WithdrawMain';
@@ -18,6 +20,8 @@ export const appRoutes: RouteObject[] = [
 
   {path: '/product/:id', element: <ProductDetail />, },
   
+  {path: '/shop', element: <ShopMain />, },
+
   {path: '/login', element: <LoginMain />, },
   {path: '/register', element: <RegisterMain />, },
   {path: '/withdraw', element: <WithdrawMain />, },

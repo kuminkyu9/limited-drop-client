@@ -1,8 +1,8 @@
 import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-import Navbar from '@/screens/Navbar';
-import Footer from '@/screens/Footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import RaffleCard from '@/screens/RaffleCard';
 import FCFSCard from '@/screens/FCFSCard';
 

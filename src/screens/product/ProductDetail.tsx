@@ -1,5 +1,5 @@
-import Navbar from '@/screens/Navbar';
-import Footer from '@/screens/Footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const ProductDetail = () => {
   return (
