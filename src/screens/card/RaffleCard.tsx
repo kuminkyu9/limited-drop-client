@@ -1,3 +1,12 @@
+export interface TmpHotRaffleItem {
+  id: number;
+  img?: string;
+  brand: string;
+  name: string;
+  price: number;
+  timer: string;
+}
+
 interface itemProps {
   img?: string;
   brand: string;

@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import RaffleCard from '@/screens/RaffleCard';
-import FCFSCard from '@/screens/FCFSCard';
+import RaffleCard from '@/screens/card/RaffleCard';
+import { type TmpHotRaffleItem } from '@/screens/card/RaffleCard'
+import FCFSCard from '@/screens/card/FCFSCard';
+import { type TmpFCFSCardProps } from '@/screens/card/FCFSCard';
 
 
 // 임시 이미지
@@ -12,25 +14,6 @@ import clockImg from '@/assets/images/clock.jpg';
 import handbagImg from '@/assets/images/handbag.jpg';
 import hoodieImg from '@/assets/images/hoodie.jpg';
 import shoesImg from '@/assets/images/shoes.jpg';
-
-interface TmpHotRaffleItem {
-  id: number;
-  img?: string;
-  brand: string;
-  name: string;
-  price: number;
-  timer: string;
-}
-
-interface TmpFCFSCardProps {
-  img?: string;
-  brand: string;
-  name: string;
-  price: number;
-  stock?: string;
-  progress?: number;
-  isSoldOut?: boolean;
-}
 
 const Main = () => {
   const navigate = useNavigate();
@@ -47,10 +30,10 @@ const Main = () => {
   }
 
   const hotFCFSList: TmpFCFSCardProps[] = [
-    {img: shoesImg, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, stock: "15/100", progress: 15, },
-    {img: hoodieImg, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, stock: "3/50", progress: 6, },
-    {img: clockImg, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, isSoldOut: true, },
-    {img: handbagImg, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, stock: "1/5", progress: 20, },
+    {id: 1, img: shoesImg, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, stock: "15/100", progress: 15, },
+    {id: 2, img: hoodieImg, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, stock: "3/50", progress: 6, },
+    {id: 3, img: clockImg, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, isSoldOut: true, },
+    {id: 4, img: handbagImg, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, stock: "1/5", progress: 20, },
   ];
   const clickFCFS = (data: unknown) => {
     console.log('clickFCFS' + data);

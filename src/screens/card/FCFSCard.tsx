@@ -1,3 +1,16 @@
+import { Flame } from "lucide-react";
+
+export interface TmpFCFSCardProps {
+  id: number;
+  img?: string;
+  brand: string;
+  name: string;
+  price: number;
+  stock?: string;
+  progress?: number;
+  isSoldOut?: boolean;
+}
+
 interface itemProps {
   img?: string;
   brand: string;
@@ -16,8 +29,9 @@ const FCFSCard = ({ img, brand, name, price, stock, progress, isSoldOut, click }
       <div className="relative aspect-square bg-white border border-gray-100 overflow-hidden mb-4">
         <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out" />
         {!isSoldOut && (
-          <div className="absolute top-0 left-0 bg-red-600 text-white text-[10px] px-2 py-1 font-black italic">
-            HOT FCFS
+          <div className="absolute top-2 left-2 inline-flex items-center gap-1 bg-red-600 px-2 py-1 text-[11px] font-bold text-white">
+            <Flame className="h-3 w-3" />
+            <span>선착순</span>
           </div>
         )}
         {isSoldOut && (
