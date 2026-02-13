@@ -39,7 +39,7 @@ const ShopTab = ({ value, onChange }: DropTabsProps) => {
                 key={tab.key}
                 onClick={() => onChange(tab.key)}
                 className={[
-                  "flex items-center gap-1 border-b-2 pb-1 transition-colors",
+                  "flex items-center gap-1 border-b-2 pb-1 transition-colors cursor-pointer",
                   isActive
                     ? "border-black font-semibold text-black"
                     : "border-transparent text-gray-500 hover:text-black",

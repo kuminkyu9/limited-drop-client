@@ -2,8 +2,8 @@ import Navbar from '@/components/Navbar';
 import ShopTab from '@/screens/shop/ShopTab';
 import Footer from '@/components/Footer';
 import { useState } from "react";
-import FCFSCard from '@/screens/card/FCFSCard';
-import { type TmpFCFSCardProps } from '@/screens/card/FCFSCard';
+import FCFSCard, { type TmpFCFSCardProps } from '@/screens/card/FCFSCard';
+import Pagenation, { type PageListItem } from '@/components/Pagenation';
 
 // 임시 이미지
 import shoesImg from '@/assets/images/shoes.jpg';
@@ -23,8 +23,20 @@ const products: TmpFCFSCardProps[] = [
   { id: 12, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 12", price: 360000, progress: 12, stock: "15/100" },
 ];
 
+const page = [
+  { id: 1, },
+  { id: 2, },
+  { id: 3, },
+  { id: 4, },
+  { id: 5, },
+]
+
 const ShopMain = () => {
   const [tab, setTab] = useState<"firstCome" | "raffle" | "normal">("firstCome");
+
+  const setPage = (data: PageListItem) => {
+    console.log(data);
+  }
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -57,31 +69,7 @@ const ShopMain = () => {
         </section>
 
         {/* 페이지네이션 */}
-        <div className="mt-10 flex items-center justify-center gap-2 text-sm">
-          <button className="px-4 py-2 text-gray-500 hover:text-black">
-            이전
-          </button>
-
-          <button className="h-9 w-9 border border-gray-200 text-gray-700 hover:bg-gray-50">
-            1
-          </button>
-          <button className="h-9 w-9 border border-gray-200 text-gray-500 hover:bg-gray-50">
-            2
-          </button>
-          <button className="h-9 w-9 border border-gray-200 text-gray-500 hover:bg-gray-50">
-            3
-          </button>
-          <button className="h-9 w-9 border border-gray-200 text-gray-500 hover:bg-gray-50">
-            4
-          </button>
-          <button className="h-9 w-9 border border-gray-200 text-gray-500 hover:bg-gray-50">
-            5
-          </button>
-
-          <button className="px-4 py-2 text-gray-500 hover:text-black">
-            다음
-          </button>
-        </div>
+        <Pagenation pageList={page} click={setPage} />
       </main>
 
       {/* --- Footer --- */}
