@@ -1,19 +1,15 @@
 import type { RouteObject } from 'react-router-dom';
 
 import Main from '@/screens/Main';
-
-import ProductDetail from '@/screens/product/ProductDetail';
-
 import ShopMain from '@/screens/shop/ShopMain';
-
-import LoginMain from '@/screens/account/LoginMain';
-import RegisterMain from '@/screens/account/RegisterMain';
-import WithdrawMain from '@/screens/account/WithdrawMain';
+import MypageMain from '@/screens/mypage/MypageMain';
 
 import ProtectedLayout from '@/router/ProtectedLayout'; 
-import ProfileMain from '@/screens/mypage/ProfileMain';
 import NotFoundPage from '@/screens/NotFoundPage';
 
+import LoginMain from '@/screens/account/LoginMain';
+
+import ProductDetail from '@/screens/product/ProductDetail';
 
 export const appRoutes: RouteObject[] = [
   {path: '/', element: <Main />, },
@@ -23,13 +19,10 @@ export const appRoutes: RouteObject[] = [
   {path: '/shop', element: <ShopMain />, },
 
   {path: '/login', element: <LoginMain />, },
-  {path: '/register', element: <RegisterMain />, },
-  {path: '/withdraw', element: <WithdrawMain />, },
-
 
   {path: '/', element: <ProtectedLayout />,
     children: [
-      {path: 'main', element: <ProfileMain />, },
+      {path: 'mypage', element: <MypageMain />, },
     ],
   },
 

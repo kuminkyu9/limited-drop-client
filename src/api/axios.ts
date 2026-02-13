@@ -36,7 +36,7 @@ api.interceptors.response.use(
         return api(originalRequest);
       } catch (refreshError) {
         useAuthStore.getState().logout();
-        window.location.href = '/main';
+        window.location.href = '/login';
         return Promise.reject(refreshError);
       }
     }

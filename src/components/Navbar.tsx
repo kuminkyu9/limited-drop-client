@@ -19,12 +19,20 @@ const Navbar = ({ search }: itemProps) => {
     navigate('/');
   }
 
-  const shopping = () => {
+  const goShop = () => {
     navigate('/shop');
   }
 
+  const goMypage = () => {
+    navigate('/mypage');
+  }
+
+  const goCart = () => {
+    console.log('장바구니')
+  }
+
   const login = () => {
-    console.log('login');
+    navigate('/login');
   }
 
   return (
@@ -33,12 +41,12 @@ const Navbar = ({ search }: itemProps) => {
       className="text-xl font-black tracking-tighter cursor-pointer">LIMITED DROP</div>
       <div className="hidden md:flex space-x-8 text-sm font-medium">
         <span onClick={() => goHome()} className="hover:text-gray-500 transition cursor-pointer">HOME</span>
-        <span onClick={() => shopping()} className="hover:text-gray-500 transition cursor-pointer">SHOP</span>
-        <span onClick={() => login()} className="hover:text-gray-500 transition cursor-pointer">MY PAGE</span>
+        <span onClick={() => goShop()} className="hover:text-gray-500 transition cursor-pointer">SHOP</span>
+        <span onClick={() => goMypage()} className="hover:text-gray-500 transition cursor-pointer">MY PAGE</span>
       </div>
       <div className="flex items-center space-x-5">
         <Search onClick={() => search()} size={20} className="hover:text-gray-500 cursor-pointer" />
-        <div onClick={() => shopping()} className="relative cursor-pointer">
+        <div onClick={() => goCart()} className="relative cursor-pointer">
           <ShoppingCart size={20} className="hover:text-gray-500 cursor-pointer" />
           <CartBadge />
         </div>
