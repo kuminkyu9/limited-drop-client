@@ -10,6 +10,7 @@ const ProtectedLayout = () => {
   const navigate = useNavigate();
   const isLoggedIn = useIsLoggedIn();
 
+  // if (isLoggedIn) {
   if (!isLoggedIn) {
     // return <Navigate to="/login" replace />;
     return <div className="min-h-screen bg-white text-black font-sans">
