@@ -1,92 +1,72 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useNavigate } from 'react-router-dom';
+import { Home, ArrowLeft } from 'lucide-react';
 
-// 아이콘 컴포넌트들 (SVG 직접 포함)
-const HomeIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-    <polyline points="9 22 9 12 15 12 15 22" />
-  </svg>
-);
-
-const ArrowLeftIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="19" y1="12" x2="5" y2="12" />
-    <polyline points="12 19 5 12 12 5" />
-  </svg>
-);
-
-// 경로 잘못 갔을 때
 const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex items-center justify-center p-4 relative font-sans">
-      {/* 메인 카드 컨테이너 */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12 max-w-lg w-full text-center">
+    <div className="min-h-screen bg-white">
+      {/* --- Navbar --- */}
+      <Navbar search={() => console.log("go search")} />
         
-        {/* 경고 아이콘 영역 */}
-        <div className="flex justify-center mb-6">
-          <div className="relative">
-            {/* 배경 원 효과 (퍼지는 느낌) */}
-            <div className="absolute inset-0 bg-red-100 rounded-full scale-125 opacity-50"></div>
-            <div className="relative bg-red-50 rounded-full p-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
+      <div className="min-h-screen bg-white text-gray-900 flex items-center justify-center px-4 md:px-6 py-8 font-sans">
+        {/* 중앙 카드 - 컴팩트하게 */}
+        <div className="w-full max-w-lg">
+          <div className="border border-gray-150 rounded-2xl px-8 py-12 md:px-10 md:py-14 bg-white shadow-sm">
+            
+            {/* 상단 라벨 */}
+            <p className="text-[10px] tracking-[0.3em] uppercase text-gray-400 mb-8">
+              NOT FOUND
+            </p>
+
+            {/* 메인 타이틀 - 크기 다운 */}
+            <div className="mb-6">
+              <h1 className="text-2xl md:text-3xl lg:text-[2.75rem] font-black leading-tight tracking-tight bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-3">
+                페이지가 없어요
+              </h1>
+              <p className="text-base md:text-lg text-gray-500 leading-relaxed max-w-sm">
+                요청하신 페이지는 존재하지 않거나<br />
+                이동되었을 수 있습니다.
+              </p>
+            </div>
+
+            {/* 404 숫자 - 크기 다운 */}
+            <div className="flex items-center justify-center text-3xl md:text-[4rem] lg:text-[4.5rem] font-black tracking-widest text-gray-200 select-none mb-8">
+              <span>404</span>
+            </div>
+
+            {/* 서브 텍스트 */}
+            <p className="text-sm text-gray-400 text-center max-w-sm mx-auto mb-8 leading-relaxed">
+              주소를 다시 확인하거나 아래 버튼을 통해<br />
+              다른 페이지로 이동해 주세요.
+            </p>
+
+            {/* 버튼 영역 */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <button
+                onClick={() => navigate(-1)}
+                className="group cursor-pointer inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-200 px-6 py-3 text-sm font-medium text-gray-700 hover:border-gray-300 hover:bg-gray-50 transition-all duration-200 min-w-30"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>이전으로</span>
+              </button>
+
+              <button
+                onClick={() => navigate('/')}
+                className="group cursor-pointer inline-flex items-center justify-center gap-2 rounded-full bg-black hover:bg-gray-900 text-white px-6 py-3 text-sm font-medium transition-all duration-200 shadow-md hover:shadow-lg min-w-30"
+              >
+                <Home className="w-4 h-4" />
+                <span>홈으로</span>
+              </button>
             </div>
           </div>
         </div>
-
-        {/* 텍스트 영역 */}
-        <h1 className="text-5xl font-bold text-gray-800 mb-2">404</h1>
-        <h2 className="text-xl font-semibold text-gray-700 mb-4">페이지를 찾을 수 없습니다</h2>
-        <p className="text-gray-500 mb-8 leading-relaxed text-sm md:text-base">
-          요청하신 페이지가 존재하지 않거나<br className="hidden md:block" />
-          잘못된 경로로 접근하셨습니다.
-        </p>
-
-        {/* 원인 박스 */}
-        <div className="bg-gray-50 rounded-lg p-6 mb-8 text-left">
-          <p className="text-xs font-semibold text-gray-500 mb-3 text-center uppercase tracking-wider">가능한 원인:</p>
-          <ul className="text-sm text-gray-600 space-y-2 list-disc list-inside px-2">
-            <li>URL 주소가 잘못 입력되었습니다</li>
-            <li>페이지가 삭제되었거나 이동되었습니다</li>
-            <li>접근 권한이 없는 페이지입니다</li>
-          </ul>
-        </div>
-
-        {/* 버튼 영역 */}
-        <div className="flex flex-col md:flex-row gap-3 justify-center">
-          <button 
-            onClick={() => navigate(-1)}
-            className="cursor-pointer flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 rounded-lg text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all text-sm font-medium w-full md:w-auto"
-          >
-            <ArrowLeftIcon />
-            이전 페이지
-          </button>
-          
-          <button 
-            onClick={() => navigate('/')}
-            className="cursor-pointer flex items-center justify-center gap-2 px-6 py-3 bg-[#ff6b00] hover:bg-[#e65100] text-white rounded-lg transition-colors text-sm font-medium w-full md:w-auto shadow-sm"
-          >
-            <HomeIcon />
-            홈으로 가기
-          </button>
-        </div>
       </div>
 
-      {/* 우측 하단 도움말 플로팅 아이콘 */}
-      <button className="fixed bottom-6 right-6 p-0 hover:scale-105 transition-transform cursor-pointer" aria-label="Help">
-        <div className="bg-gray-900 text-white rounded-full p-3 shadow-lg flex items-center justify-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-          </svg>
-        </div>
-      </button>
+      {/* --- Footer --- */}
+      <Footer />
     </div>
   );
 };

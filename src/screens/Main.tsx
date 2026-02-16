@@ -118,7 +118,7 @@ const Main = () => {
       <section className="bg-black text-white py-28 text-center px-4">
         <h2 className="text-4xl md:text-5xl font-black mb-4">놓치지 마세요</h2>
         <p className="mb-10 text-gray-400 font-light text-sm md:text-base">한정된 기회, 지금 바로 참여하세요</p>
-        <button onClick={() => navigate('/shop')} className="bg-white text-black px-14 py-4 text-sm font-bold hover:bg-gray-200 transition-all cursor-pointer">
+        <button onClick={() => navigate('/shop/firstCome/1')} className="bg-white text-black px-14 py-4 text-sm font-bold hover:bg-gray-200 transition-all cursor-pointer">
           전체 상품 보기
         </button>
       </section>

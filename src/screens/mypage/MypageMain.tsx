@@ -73,7 +73,7 @@ const MypageMain = () => {
       </div>
 
       {/* 컨텐츠 영역 (전체 높이 키우고 여백 넉넉하게) */}
-      <main className="mx-auto min-h-[800px] max-w-6xl px-8 py-8">
+      <main className="mx-auto min-h-200 max-w-6xl px-8 py-8">
         {tab === "entries" ? <EntriesList /> : <OrdersList />}
       </main>
 

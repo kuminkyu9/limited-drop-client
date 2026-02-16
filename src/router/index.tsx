@@ -16,7 +16,7 @@ export const appRoutes: RouteObject[] = [
 
   {path: '/product/:id', element: <ProductDetail />, },
   
-  {path: '/shop', element: <ShopMain />, },
+  {path: '/shop/:tab/:page', element: <ShopMain />, },
 
   {path: '/login', element: <LoginMain />, },
 

@@ -20,7 +20,7 @@ const Navbar = ({ search }: itemProps) => {
   }
 
   const goShop = () => {
-    navigate('/shop');
+    navigate('/shop/firstCome/1');
   }
 
   const goMypage = () => {

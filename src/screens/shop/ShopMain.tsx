@@ -1,9 +1,10 @@
 import Navbar from '@/components/Navbar';
 import ShopTab from '@/screens/shop/ShopTab';
 import Footer from '@/components/Footer';
-import { useState } from "react";
 import FCFSCard, { type TmpFCFSCardProps } from '@/screens/card/FCFSCard';
-import Pagenation, { type PageListItem } from '@/components/Pagenation';
+import Pagenation from '@/components/Pagenation';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 // 임시 이미지
 import shoesImg from '@/assets/images/shoes.jpg';
@@ -23,20 +24,41 @@ const products: TmpFCFSCardProps[] = [
   { id: 12, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 12", price: 360000, progress: 12, stock: "15/100" },
 ];
 
-const page = [
-  { id: 1, },
-  { id: 2, },
-  { id: 3, },
-  { id: 4, },
-  { id: 5, },
-]
+const pageList = [1, 2, 3, 4, 5];
 
 const ShopMain = () => {
-  const [tab, setTab] = useState<"firstCome" | "raffle" | "normal">("firstCome");
+  const navigate = useNavigate();
 
-  const setPage = (data: PageListItem) => {
-    console.log(data);
-  }
+  const { tab: routeTab, page: routePage } = useParams<{ tab: string; page: string }>();
+
+  const isValidTab = (t: string | undefined): t is "firstCome" | "raffle" | "normal" => {
+    return ["firstCome", "raffle", "normal"].includes(t as string);
+  };
+
+  const isValidPage = (p: string | undefined) => {
+    return p && !isNaN(Number(p)) && Number(p) > 0;
+  };
+
+  const currentTab = isValidTab(routeTab) ? routeTab : "firstCome";
+  const currentPage = isValidPage(routePage) ? routePage! : "1";
+
+  const handleTabChange = (newTab: "firstCome" | "raffle" | "normal") => {
+    navigate(`/shop/${newTab}/1`);
+    console.log(`new_tab:${newTab}, page: ${currentPage}`);
+  };
+
+  const setPage = (newPage: number) => {
+    navigate(`/shop/${currentTab}/${newPage}`);
+    console.log(`new_page:${currentTab}, page: ${newPage}`);
+  };
+
+  // 주소창에 이상한 값(ㅇㄴㅇ 등) 입력 시 자동으로 주소 교정
+  useEffect(() => {
+    if (!isValidTab(routeTab) || !isValidPage(routePage)) {
+      // 잘못된 주소면 정상적인 주소로 리다이렉트 (replace로 히스토리 관리)
+      navigate(`/shop/${currentTab}/${currentPage}`, { replace: true });
+    }
+  }, [routeTab, routePage, currentTab, currentPage, navigate]);
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
@@ -44,24 +66,18 @@ const ShopMain = () => {
       <header className="sticky top-0 z-100 border-b border-gray-200 bg-white">
         {/* --- Navbar --- */}
         <Navbar search={() => {console.log('go search');}} />
-
+        
         {/* 상단 필터 탭 */}
-        <ShopTab value={tab} onChange={setTab} />
+        <ShopTab value={currentTab} onChange={handleTabChange} />
       </header>
 
       {/* 메인 컨텐츠: 상품 그리드 + 페이지네이션 */}
       <main className="mx-auto max-w-6xl px-4 py-8">
         <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {products.map((item, idx) => (
-            <div key={idx}>
+          {products.map((item) => (
+            <div key={item.id}>
               <FCFSCard 
-                img={item.img} 
-                brand={item.brand} 
-                name={item.name} 
-                price={item.price} 
-                stock={item.stock} 
-                progress={item.progress} 
-                isSoldOut={item.isSoldOut} 
+                {...item}
                 click={() => console.log('tmp')}
               />
             </div>
@@ -69,7 +85,7 @@ const ShopMain = () => {
         </section>
 
         {/* 페이지네이션 */}
-        <Pagenation pageList={page} click={setPage} />
+        <Pagenation currentPage={Number(currentPage)} pageList={pageList} click={setPage} />
       </main>
 
       {/* --- Footer --- */}
