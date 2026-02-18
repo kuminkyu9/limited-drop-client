@@ -40,9 +40,16 @@ const FCFSCard = ({ img, brand, name, price, stock, progress, isSoldOut, click }
           </div>
         )}
       </div>
-      <div className="text-[10px] text-gray-400 font-bold mb-1 uppercase">{brand}</div>
-      <div className="text-[13px] font-medium mb-1 line-clamp-1">{name}</div>
-      <div className="font-bold text-sm mb-3 italic">₩{price}</div>
+      
+      {/* 브랜드 */}
+      <div className="mb-1 text-[11px] font-semibold tracking-[0.18em] text-gray-400">{brand.toUpperCase()}</div>
+
+      {/* 상품명 */}
+      <div className="text-[13px] font-medium mb-1 line-clamp-1 group-hover:underline">{name}</div>
+
+      {/* 가격 */}
+      <div className="mb-2 text-base font-bold text-gray-900">₩{price.toLocaleString("ko-KR")}</div>
+      
       {!isSoldOut && (
         <div className="mt-2">
           <div className="flex justify-between text-[10px] text-gray-500 mb-1.5 font-medium">

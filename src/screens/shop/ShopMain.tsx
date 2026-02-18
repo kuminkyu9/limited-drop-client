@@ -2,14 +2,18 @@ import Navbar from '@/components/Navbar';
 import ShopTab from '@/screens/shop/ShopTab';
 import Footer from '@/components/Footer';
 import FCFSCard, { type TmpFCFSCardProps } from '@/screens/card/FCFSCard';
+import RaffleCard, { type TmpHotRaffleItem } from '@/screens/card/RaffleCard';
+import NormalCard, { type TmpNormalItem } from '@/screens/card/NormalCard';
 import Pagenation from '@/components/Pagenation';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 // 임시 이미지
 import shoesImg from '@/assets/images/shoes.jpg';
+import hoodieImg from '@/assets/images/hoodie.jpg';
+import shoes from '@/assets/images/shoes.jpg';
 
-const products: TmpFCFSCardProps[] = [
+const fcfsList: TmpFCFSCardProps[] = [
   { id: 1, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 1", price: 250000, progress: 100, stock: "15/100" },
   { id: 2, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 2", price: 260000, progress: 92, stock: "15/100" },
   { id: 3, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 3", price: 270000, progress: 84, stock: "15/100" },
@@ -22,6 +26,36 @@ const products: TmpFCFSCardProps[] = [
   { id: 10, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 10", price: 340000, progress: 28, stock: "15/100" },
   { id: 11, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 11", price: 350000, progress: 20, stock: "15/100" },
   { id: 12, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 12", price: 360000, progress: 12, stock: "15/100" },
+];
+
+const hotRaffleList: TmpHotRaffleItem[] = [
+  {id: 1, img: hoodieImg, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, timer: "02:15:30"},
+  {id: 2, img: hoodieImg, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, timer: "01:45:20"},
+  {id: 3, img: hoodieImg, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, timer: "01:45:20"},
+  {id: 4, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 5, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 6, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 7, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 8, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 9, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 10, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 11, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+  {id: 12, img: hoodieImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, timer: "06:20:15"},
+];
+
+const normalList: TmpNormalItem[] = [
+  {id: 1, img: shoes, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, rating: 4.6, reviews: 44},
+  {id: 2, img: shoes, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, rating: 5, reviews: 23},
+  {id: 3, img: shoes, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, rating: 3.4, reviews: 21},
+  {id: 4, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 5, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 6, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 7, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 8, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 9, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 10, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 11, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 12, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
 ];
 
 const pageList = [1, 2, 3, 4, 5];
@@ -74,14 +108,30 @@ const ShopMain = () => {
       {/* 메인 컨텐츠: 상품 그리드 + 페이지네이션 */}
       <main className="mx-auto max-w-6xl px-4 py-8">
         <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {products.map((item) => (
-            <div key={item.id}>
-              <FCFSCard 
-                {...item}
-                click={() => console.log('tmp')}
-              />
-            </div>
-          ))}
+          {
+            currentTab == "firstCome" ? fcfsList.map((item) => (
+              <div key={item.id}>
+                <FCFSCard 
+                  {...item}
+                  click={() => console.log('tmp')}
+                />
+              </div>
+            )) : currentTab == "raffle" ? hotRaffleList.map((item) => (
+              <div key={item.id}>
+                <RaffleCard 
+                  {...item}
+                  click={() => console.log('tmp')}
+                />
+              </div>
+            )) : normalList.map((item) => (
+              <div key={item.id}>
+                <NormalCard 
+                  {...item}
+                  click={() => console.log('tmp')}
+                />
+              </div>
+            ))
+          }
         </section>
 
         {/* 페이지네이션 */}
