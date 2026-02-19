@@ -11,7 +11,6 @@ import { useEffect } from 'react';
 // 임시 이미지
 import shoesImg from '@/assets/images/shoes.jpg';
 import hoodieImg from '@/assets/images/hoodie.jpg';
-import shoes from '@/assets/images/shoes.jpg';
 
 const fcfsList: TmpFCFSCardProps[] = [
   { id: 1, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 1", price: 250000, progress: 100, stock: "15/100" },
@@ -44,18 +43,18 @@ const hotRaffleList: TmpHotRaffleItem[] = [
 ];
 
 const normalList: TmpNormalItem[] = [
-  {id: 1, img: shoes, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, rating: 4.6, reviews: 44},
-  {id: 2, img: shoes, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, rating: 5, reviews: 23},
-  {id: 3, img: shoes, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, rating: 3.4, reviews: 21},
-  {id: 4, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 5, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 6, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 7, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 8, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 9, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 10, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 11, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
-  {id: 12, img: shoes, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 1, img: shoesImg, brand: "NIKE", name: "Air Jordan 1 Retro High OG 'Chicago Lost and Found'", price: 289000, rating: 4.6, reviews: 44},
+  {id: 2, img: shoesImg, brand: "SUPREME", name: "Box Logo Hoodie Black", price: 450000, rating: 5, reviews: 23},
+  {id: 3, img: shoesImg, brand: "ROLEX", name: "Submariner Date 126610LN", price: 15800000, rating: 3.4, reviews: 21},
+  {id: 4, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 5, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 6, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 7, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 8, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 9, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 10, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 11, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
+  {id: 12, img: shoesImg, brand: "LOUIS VUITTON", name: "Neverfull MM Monogram", price: 2380000, rating: 4.6, reviews: 44},
 ];
 
 const pageList = [1, 2, 3, 4, 5];
