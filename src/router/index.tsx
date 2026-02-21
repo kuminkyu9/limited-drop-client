@@ -11,6 +11,8 @@ import LoginMain from '@/screens/account/LoginMain';
 
 import ProductDetail from '@/screens/product/ProductDetail';
 
+import CartMain from '@/screens/cart/CartMain';
+
 export const appRoutes: RouteObject[] = [
   {path: '/', element: <Main />, },
 
@@ -23,6 +25,7 @@ export const appRoutes: RouteObject[] = [
   {path: '/', element: <ProtectedLayout />,
     children: [
       {path: 'mypage', element: <MypageMain />, },
+      {path: 'cart', element: <CartMain />, },
     ],
   },
 

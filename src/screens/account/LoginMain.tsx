@@ -13,35 +13,37 @@ const LoginMain = () => {
       {/* --- Navbar --- */}
       <Navbar search={() => {console.log('go search');}} />
   
-      <div className="flex min-h-200 flex-col items-center justify-center bg-white">
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-extrabold tracking-[0.15em]">LIMITED DROP</h1>
-          <p className="mt-2 text-xs text-gray-500">한정판 래플 &amp; 선착순 커머스</p>
-        </div>
-        <div className="w-full max-w-md">
-          <div className="mb-6 grid grid-cols-2 border border-black text-sm">
-            <button
-              onClick={() => setTab("login")}
-              className={
-                tab === "login"
-                  ? "bg-black py-3 font-semibold text-white cursor-pointer"
-                  : "bg-white py-3 font-semibold text-gray-900 cursor-pointer"
-              }
-            >
-              로그인
-            </button>
-            <button
-              onClick={() => setTab("signup")}
-              className={
-                tab === "signup"
-                  ? "bg-black py-3 font-semibold text-white cursor-pointer"
-                  : "bg-white py-3 font-semibold text-gray-900 cursor-pointer"
-              }
-            >
-              회원가입
-            </button>
+      <div className="min-h-[calc(100vh-63px)] flex flex-col items-center justify-center bg-white">
+        <div className="w-full max-w-md -translate-y-15.75">
+          <div className="mb-8 text-center">
+            <h1 className="text-2xl font-extrabold tracking-[0.15em]">LIMITED DROP</h1>
+            <p className="mt-2 text-xs text-gray-500">한정판 래플 &amp; 선착순 커머스</p>
           </div>
-          {tab === "login" ? <LoginForm /> : <SignupForm />}
+          <div className="w-full max-w-md">
+            <div className="mb-6 grid grid-cols-2 border border-black text-sm">
+              <button
+                onClick={() => setTab("login")}
+                className={
+                  tab === "login"
+                    ? "bg-black py-3 font-semibold text-white cursor-pointer"
+                    : "bg-white py-3 font-semibold text-gray-900 cursor-pointer"
+                }
+              >
+                로그인
+              </button>
+              <button
+                onClick={() => setTab("signup")}
+                className={
+                  tab === "signup"
+                    ? "bg-black py-3 font-semibold text-white cursor-pointer"
+                    : "bg-white py-3 font-semibold text-gray-900 cursor-pointer"
+                }
+              >
+                회원가입
+              </button>
+            </div>
+            {tab === "login" ? <LoginForm /> : <SignupForm />}
+          </div>
         </div>
       </div>
 

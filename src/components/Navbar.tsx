@@ -1,6 +1,7 @@
 import { Search, ShoppingCart } from 'lucide-react';
 import { useCartStore } from '@/store/useCartStore';
 import { useNavigate } from 'react-router-dom';
+import { useIsLoggedIn } from '@/store/useAuthStore';
 
 const CartBadge = () => {
   const itemCount = useCartStore((state) => state.items.length);
@@ -14,6 +15,7 @@ interface itemProps {
 
 const Navbar = ({ search }: itemProps) => {
   const navigate = useNavigate();
+  const isLoggedIn = useIsLoggedIn();
 
   const goHome = () => {
     navigate('/');
@@ -28,7 +30,7 @@ const Navbar = ({ search }: itemProps) => {
   }
 
   const goCart = () => {
-    console.log('장바구니')
+    navigate('/cart');
   }
 
   const login = () => {
@@ -48,7 +50,7 @@ const Navbar = ({ search }: itemProps) => {
         <Search onClick={() => search()} size={20} className="hover:text-gray-500 cursor-pointer" />
         <div onClick={() => goCart()} className="relative cursor-pointer">
           <ShoppingCart size={20} className="hover:text-gray-500 cursor-pointer" />
-          <CartBadge />
+          {isLoggedIn && <CartBadge />}
         </div>
         <button onClick={() => login()} className="border border-black px-4 py-1 text-sm font-medium hover:bg-black hover:text-white transition uppercase cursor-pointer">Login</button>
       </div>
