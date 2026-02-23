@@ -28,10 +28,10 @@ const Main = () => {
   }
 
   const hotFCFSList: TmpFCFSCardProps[] = [
-    {id: 1, img: shoesImg, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, stock: "15/100", progress: 15, },
-    {id: 2, img: hoodieImg, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, stock: "3/50", progress: 6, },
-    {id: 3, img: clockImg, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, isSoldOut: true, },
-    {id: 4, img: handbagImg, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, stock: "1/5", progress: 20, },
+    {id: 1, img: shoesImg, brand: "ADIDAS", name: "Yeezy Boost 350 V2 'Zebra'", price: 320000, totalStock: 100, soldCount: 15, },
+    {id: 2, img: hoodieImg, brand: "STONE ISLAND", name: "Shadow Project Jacket", price: 890000, totalStock: 50, soldCount: 3, },
+    {id: 3, img: clockImg, brand: "OMEGA", name: "Speedmaster Professional Moonwatch", price: 8900000, totalStock: 1, soldCount: 1, },
+    {id: 4, img: handbagImg, brand: "HERMÈS", name: "Birkin 30 Togo Leather", price: 18500000, totalStock: 50, soldCount: 49, },
   ];
   const clickFCFS = (data: unknown) => {
     console.log('clickFCFS' + data);
@@ -65,19 +65,15 @@ const Main = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-8">
             <h2 className="text-2xl font-bold tracking-tight">인기 래플 상품들</h2>
-            <button className="text-xs font-medium flex items-center text-gray-500 hover:text-black transition cursor-pointer">
+            <button onClick={() => navigate('/shop/raffle/1')} className="text-xs font-medium flex items-center text-gray-500 hover:text-black transition cursor-pointer">
               View All <ChevronRight size={20} />
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-            {hotRaffleList.map((item, idx) => (
-              <div key={idx}>
+            {hotRaffleList.map((item) => (
+              <div key={item.id}>
                 <RaffleCard 
-                  img={item.img} 
-                  brand={item.brand} 
-                  name={item.name} 
-                  price={item.price} 
-                  timer={item.timer} 
+                  {...item}
                   click={() => clickRapple(item)}
                 />
               </div>
@@ -91,21 +87,15 @@ const Main = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-end mb-8">
             <h2 className="text-2xl font-bold tracking-tight">인기 선착순 상품들</h2>
-            <button className="text-xs font-medium flex items-center text-gray-500 hover:text-black transition cursor-pointer">
+            <button onClick={() => navigate('/shop/firstCome/1')} className="text-xs font-medium flex items-center text-gray-500 hover:text-black transition cursor-pointer">
               View All <ChevronRight size={20} />
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-            {hotFCFSList.map((item, idx) => (
-              <div key={idx}>
+            {hotFCFSList.map((item) => (
+              <div key={item.id}>
                 <FCFSCard 
-                  img={item.img} 
-                  brand={item.brand} 
-                  name={item.name} 
-                  price={item.price} 
-                  stock={item.stock} 
-                  progress={item.progress} 
-                  isSoldOut={item.isSoldOut} 
+                  {...item}
                   click={() => clickFCFS(item)}
                 />
               </div>

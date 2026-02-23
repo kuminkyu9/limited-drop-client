@@ -13,18 +13,18 @@ import shoesImg from '@/assets/images/shoes.jpg';
 import hoodieImg from '@/assets/images/hoodie.jpg';
 
 const fcfsList: TmpFCFSCardProps[] = [
-  { id: 1, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 1", price: 250000, progress: 100, stock: "15/100" },
-  { id: 2, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 2", price: 260000, progress: 92, stock: "15/100" },
-  { id: 3, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 3", price: 270000, progress: 84, stock: "15/100" },
-  { id: 4, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 4", price: 280000, progress: 76, stock: "15/100" },
-  { id: 5, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 5", price: 290000, progress: 68, stock: "15/100" },
-  { id: 6, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 6", price: 300000, progress: 60, stock: "15/100" },
-  { id: 7, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 7", price: 310000, progress: 52, stock: "15/100" },
-  { id: 8, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 8", price: 320000, progress: 44, stock: "15/100" },
-  { id: 9, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 9", price: 330000, progress: 36, stock: "15/100" },
-  { id: 10, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 10", price: 340000, progress: 28, stock: "15/100" },
-  { id: 11, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 11", price: 350000, progress: 20, stock: "15/100" },
-  { id: 12, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 12", price: 360000, progress: 12, stock: "15/100" },
+  { id: 1, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 1", price: 250000, totalStock: 100, soldCount: 15},
+  { id: 2, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 2", price: 260000, totalStock: 100, soldCount: 15},
+  { id: 3, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 3", price: 270000, totalStock: 100, soldCount: 15},
+  { id: 4, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 4", price: 280000, totalStock: 100, soldCount: 15},
+  { id: 5, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 5", price: 290000, totalStock: 100, soldCount: 15},
+  { id: 6, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 6", price: 300000, totalStock: 100, soldCount: 15},
+  { id: 7, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 7", price: 310000, totalStock: 100, soldCount: 15},
+  { id: 8, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 8", price: 320000, totalStock: 100, soldCount: 15},
+  { id: 9, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 9", price: 330000, totalStock: 100, soldCount: 15},
+  { id: 10, img: shoesImg, brand: "NIKE", name: "한정판 스니커즈 컬렉션 10", price: 340000, totalStock: 100, soldCount: 15},
+  { id: 11, img: shoesImg, brand: "ADIDAS", name: "한정판 스니커즈 컬렉션 11", price: 350000, totalStock: 100, soldCount: 15},
+  { id: 12, img: shoesImg, brand: "NEW BALANCE", name: "한정판 스니커즈 컬렉션 12", price: 360000, totalStock: 100, soldCount: 15},
 ];
 
 const hotRaffleList: TmpHotRaffleItem[] = [
