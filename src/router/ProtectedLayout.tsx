@@ -10,8 +10,8 @@ const ProtectedLayout = () => {
   const navigate = useNavigate();
   const isLoggedIn = useIsLoggedIn();
 
-  // if (isLoggedIn) {
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
+  // if (!isLoggedIn) {
     return <div className="min-h-screen bg-white text-black font-sans">
       {/* --- Navbar --- */}
       <Navbar search={() => {console.log('go search');}} />
