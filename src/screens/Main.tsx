@@ -54,7 +54,7 @@ const Main = () => {
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight uppercase">Limited Drop</h1>
           <p className="text-lg md:text-xl mb-8 font-light text-gray-200">희소가치를 경험하세요</p>
-          <button className="bg-white text-black px-12 py-3.5 text-sm font-bold hover:bg-gray-200 transition-all active:scale-95 cursor-pointer">
+          <button onClick={() => navigate('/shop/firstCome/1')} className="bg-white text-black px-12 py-3.5 text-sm font-bold hover:bg-gray-200 transition-all active:scale-95 cursor-pointer">
             쇼핑 시작하기
           </button>
         </div>
