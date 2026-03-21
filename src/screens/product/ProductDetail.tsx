@@ -9,9 +9,9 @@ import hoodieImg from '@/assets/images/hoodie.jpg';
 import shoesImg from '@/assets/images/shoes.jpg';
 
 const thumbnailList = [
-  {img: handbagImg, alt: '썸네일 1'}, 
-  {img: hoodieImg, alt: '썸네일 2'}, 
-  {img: shoesImg, alt: '썸네일 3'}
+  {id: 1, img: handbagImg, alt: '썸네일 1'}, 
+  {id: 2, img: hoodieImg, alt: '썸네일 2'}, 
+  {id: 3, img: shoesImg, alt: '썸네일 3'}
 ];
 
 const sizeList = [250, 255, 260, 265, 270, 275, 280];
@@ -38,7 +38,7 @@ const ProductDetail = () => {
             </div>
             <div className="mt-4 flex gap-4">
               {thumbnailList.map((item) => (
-                <button className="relative aspect-4/5 w-1/3 overflow-hidden bg-black">
+                <button key={item.id} className="relative aspect-4/5 w-1/3 overflow-hidden bg-black">
                   <img
                     src={item.img}
                     alt={item.alt}
